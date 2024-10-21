@@ -30,6 +30,8 @@ app.get('/api/:date_string?', (req, res) => {
   if (!date_string) {
     date = new Date();
   } else {
+    if (!isNaN(date_string)) 
+      date_string = parseInt(date_string);
     date = new Date(date_string);
   }
   if (date.toString() === 'Invalid Date') {
